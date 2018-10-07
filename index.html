@@ -3,22 +3,103 @@
 
 <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title> Beatbox</title>
+    <title> KAIST Analytica</title>
 </head>
 
 <body>
 
-<h1> Homework#1: Beatbox </h1>
-<img src="image_australia.png" usemap="#image-map">
+	<h1 id=title>Select a state:</h1>
 
-<map name="image-map">
-    <area target="_self" alt="" title="Western Australia" href="https://lucmichels.github.io/" coords="563,932,606,948,653,925,665,908,718,892,737,901,757,896,777,865,808,842,857,838,889,817,877,331,848,332,815,294,799,310,784,315,763,326,747,345,747,366,738,379,714,379,728,404,707,390,684,416,693,433,658,475,638,494,606,499,575,512,558,527,481,588,479,616,476,651,509,703,488,683,474,689,496,720,517,755,569,849,571,890,554,916" shape="poly">
-</map>
+	<button onmousedown="predictCountry()">Country Prediction </button>
 
-</script>
+
+	<div id="menu">
+
+
+		<div id="states"></div>
+
+		<div id=resultText></div>
+		<p></p>
+
+		<select id="selection" onchange="selectState(this.value)">
+			<option disabled selected value> -- select an option -- </option>
+			<option value="AUNT">Northern Territory</option>
+			<option value="AUWA">Western Australia</option>
+			<option value="AUACT">Australian Capital Territory</option>
+			<option value="AUNSW">New South Wales</option>
+			<option value="AUSA">South Australia</option>
+			<option value="AUVIC">Victoria</option>
+			<option value="AUQLD">Queensland</option>
+			<option value="AUTAS">Tasmania</option>
+		</select>
+
+	</div>
+
+
+	<script src="raphael-min.js"></script>
+    <script src="map.js"></script>
+	<script type="text/javascript">
+
+		var behaviour = 0	// 0 country
+							// 1 state
+		var stateIds = ["AUNT" , "AUWA" , "AUACT" , "AUNSW" , "AUSA" , "AUVIC" , "AUQLD" , "AUTAS" ]
+
+		for (var i = 0; i < states.length; i++) {
+			states[i].node.id_ = states[i].data().id
+        	states[i].node.onmouseenter = (e) => {if(behaviour == 0){e.target.setAttribute('fill', 'grey')}}
+        	states[i].node.onmouseleave = (e) => {if(behaviour == 0){e.target.setAttribute('fill', 'black')}}
+        	states[i].node.onclick = (e) => {if(behaviour == 0){selectState(e.target.id_)}}
+		}
+
+		function selectState(id){
+
+			document.getElementById("title").innerHTML = "Northern Territory"
+			document.getElementById("selection").value = id
+			document.getElementById("resultText").innerHTML = "The Australian Labour Party will win the state elections"
+
+			x = stateIds.indexOf(id)
+			behaviour = 1
+			for(var i = 0; i < states.length; i++){
+				if(i != x){
+					states[i].node.setAttribute('fill', 'lightgrey')
+				} else{
+					states[i].node.setAttribute('fill', 'red')
+				}
+			}
+		}
+
+		function predictCountry(){
+
+			var blue = 0
+
+
+			behaviour = 1
+			for(var i = 0; i < states.length; i++){
+				if(Math.random() > 0.6){
+					states[i].node.setAttribute('fill', 'blue')
+					blue = blue + 1
+				} else{
+					states[i].node.setAttribute('fill', 'red')
+				}
+			}
+			if(blue < 4){
+				document.getElementById("title").innerHTML = "The Australian Labor Party will hold the majority of the states"
+			} else if (blue > 4){
+				document.getElementById("title").innerHTML = "The National Liberal Party will hold the majority of the states"
+			} else {
+				document.getElementById("title").innerHTML = "The Australian Labor Party and the National Liberal Party would hold the same amount of states"
+			}
+			
+		}
+
+		/**
+		 * Sources:
+		 *
+		 * https://www.amcharts.com/svg-maps/?map=australia
+		 */
+
+	</script>
+
 </body>
 
 </html>
-
-
-
