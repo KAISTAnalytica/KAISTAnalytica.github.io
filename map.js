@@ -38,10 +38,10 @@ states.push(new State(AUNT),
 var behaviour = 0	// 0 country
 							// 1 state
 for (var i = 0; i < states.length; i++) {
-	states[i].node.state_ = states[i]
-	states[i].node.onmouseenter = (e) => {if(behaviour == 0){e.target.setAttribute('fill', 'grey')}}
-	states[i].node.onmouseleave = (e) => {if(behaviour == 0){e.target.setAttribute('fill', 'black')}}
-	states[i].node.onclick = (e) => {if(behaviour == 0){selectState(e.target.state_)}}
+	states[i].node().state_ = states[i]
+	states[i].node().onmouseenter = (e) => {if(behaviour == 0){e.target.setAttribute('fill', 'grey')}}
+	states[i].node().onmouseleave = (e) => {if(behaviour == 0){e.target.setAttribute('fill', 'black')}}
+	states[i].node().onclick = (e) => {if(behaviour == 0){selectState(e.target.state_)}}
 }
 
 function predictCountry(){
@@ -54,7 +54,7 @@ function predictCountry(){
 			behaviour = 1
 			for(var i = 0; i < states.length; i++){
 				
-				states[i].node().setAttribute('fill', 'blue')
+				states[i].node().setAttribute('fill', states[i].color())
 				red += (red + (states[i].result == null? 1 : states[i].result))
 				
 			}
@@ -71,7 +71,7 @@ function predictCountry(){
 
 function selectState(state){
 
-			if(state.result() == null ) {
+			if(state.result == null ) {
 				//state.predictionRequest()
 			}
 
@@ -86,9 +86,9 @@ function selectState(state){
 
 			for(var i = 0; i < states.length; i++){
 				if(i != x){
-					states[i].node.setAttribute('fill', 'lightgrey')
+					states[i].node().setAttribute('fill', 'lightgrey')
 				} else{
-					states[i].node.setAttribute('fill', state.color())
+					states[i].node().setAttribute('fill', state.color())
 				}
 			}
 		}

@@ -19,7 +19,7 @@ State.prototype.node = function() {return this.info.node}
 State.prototype.predictionRequest = function() {
 	server = ""
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', server+'/prediction/'+this.id)
+    xhr.open('GET', server+'/prediction/'+this.id())
     xhr.onload = ()=>{window.location.replace(window.location.origin+'/')}
     xhr.send();
     
