@@ -37,20 +37,18 @@ states.push(new State(AUNT),
 
 var behaviour = 0	// 0 country
 							// 1 state
-var stateIds = ["AUNT" , "AUWA" , "AUACT" , "AUNSW" , "AUSA" , "AUVIC" , "AUQLD" , "AUTAS" ]
-var country = 
 for (var i = 0; i < states.length; i++) {
-	states[i].node.id_ = states[i].id
+	states[i].node.state_ = states[i]
 	states[i].node.onmouseenter = (e) => {if(behaviour == 0){e.target.setAttribute('fill', 'grey')}}
 	states[i].node.onmouseleave = (e) => {if(behaviour == 0){e.target.setAttribute('fill', 'black')}}
-	states[i].node.onclick = (e) => {if(behaviour == 0){selectState(e.target.id_)}}
+	states[i].node.onclick = (e) => {if(behaviour == 0){selectState(e.target.state_)}}
 }
 
 function predictCountry(){
 
 
 			
-			/*
+			
 			var blue = 0
 
 
@@ -71,17 +69,20 @@ function predictCountry(){
 				document.getElementById("title").innerHTML = "The Australian Labor Party and the National Liberal Party would hold the same amount of states"
 			}
 
-			*/
+			
 
 		}
 
-function selectState(id){
+function selectState(state){
 
-			document.getElementById("title").innerHTML = "Northern Territory"
-			document.getElementById("selection").value = id
+			if(state.result() == null ) {
+				state.predictionRequest()
+			}
+
+			document.getElementById("title").innerHTML = state.name
+			document.getElementById("selection").value = state
 			document.getElementById("resultText").innerHTML = "The Australian Labour Party will win the state elections"
 
-			x = stateIds.indexOf(id)
 			behaviour = 1
 
 			//setAll("main", "hidden", true)
@@ -91,7 +92,7 @@ function selectState(id){
 				if(i != x){
 					states[i].node.setAttribute('fill', 'lightgrey')
 				} else{
-					states[i].node.setAttribute('fill', 'red')
+					states[i].node.setAttribute('fill', state.color)
 				}
 			}
 		}
