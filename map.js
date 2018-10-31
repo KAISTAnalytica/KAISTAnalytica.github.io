@@ -47,14 +47,14 @@ for (var i = 0; i < states.length; i++) {
 function predictCountry(){
 
 			countryPredictionRequest()
-			
+
 			var red = 0
 
 
 			behaviour = 1
 			for(var i = 0; i < states.length; i++){
 				
-				states[i].node.setAttribute('fill', 'blue')
+				states[i].node().setAttribute('fill', 'blue')
 				red += red + (states[i].result == null? 1 else states[i].result)
 				
 			}
@@ -97,7 +97,7 @@ function selectState(state){
 				state.predictionRequest()
 			}
 
-			document.getElementById("title").innerHTML = state.name
+			document.getElementById("title").innerHTML = state.name()
 			document.getElementById("selection").value = state
 			document.getElementById("resultText").innerHTML = "The Australian Labour Party will win the state elections"
 
@@ -110,7 +110,7 @@ function selectState(state){
 				if(i != x){
 					states[i].node.setAttribute('fill', 'lightgrey')
 				} else{
-					states[i].node.setAttribute('fill', state.color)
+					states[i].node.setAttribute('fill', state.color())
 				}
 			}
 		}

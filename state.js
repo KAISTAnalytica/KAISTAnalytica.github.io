@@ -13,9 +13,9 @@ State.prototype.color = function() {
     }
 
 }
-State.prototype.id = this.info.data().id
-State.prototype.name = this.info.attr(title)
-State.prototype.node = this.info.node
+State.prototype.id = function() {return this.info.data().id}}
+State.prototype.name = function() {return this.info.attr(title)}
+State.prototype.node = function() {return this.info.node}
 State.prototype.predictionRequest = function() {
 	server = ""
     var xhr = new XMLHttpRequest();
