@@ -69,7 +69,14 @@ function predictCountry(){
 
 		}
 
-function selectState(state){
+function selectState(s){
+
+			var state
+			if( (typeof state) == "number"){
+				state = states[s]
+			} else {
+				state = s
+			}
 
 			if(state.result == null ) {
 				//state.predictionRequest()
@@ -94,6 +101,7 @@ function selectState(state){
 				
 			
 		}
+
 
 function setAll(str, attr, val){
 	var h = document.getElementsByClassName(str)
