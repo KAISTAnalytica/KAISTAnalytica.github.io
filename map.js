@@ -84,11 +84,11 @@ function selectState(state){
 			//setAll("main", "hidden", true)
 			removeAll("sub", "hidden")
 
-			for (var s=0; s<states.length; ++s){
-				if(states[s] != state){
-					states[s].node().setAttribute('fill', 'lightgrey')
+			for (var i=0; i<states.length; ++i){
+				if(states[i] != state){
+					states[i].node().setAttribute('fill', 'lightgrey')
 				} else{
-					states[s].node().setAttribute('fill', states[s].color())
+					states[i].node().setAttribute('fill', states[i].color())
 				}
 			}
 				
@@ -109,8 +109,8 @@ function removeAll(str, attr){
 }
 
 function countryPredictionRequest(){
-	var state
-	for (state in states){
+	var s
+	for (s in states){
 		//state.predictionRequest()
 	}
 }
