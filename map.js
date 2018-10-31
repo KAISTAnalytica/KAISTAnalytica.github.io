@@ -84,13 +84,15 @@ function selectState(state){
 			//setAll("main", "hidden", true)
 			removeAll("sub", "hidden")
 
-			for(var i = 0; i < states.length; i++){
-				if(i != x){
+			for (s in states){
+				if(s != state){
 					states[i].node().setAttribute('fill', 'lightgrey')
 				} else{
-					states[i].node().setAttribute('fill', state.color())
+					states[i].node().setAttribute('fill', s.color())
 				}
 			}
+				
+			
 		}
 
 function setAll(str, attr, val){
