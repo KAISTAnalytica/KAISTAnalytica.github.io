@@ -72,7 +72,7 @@ function predictCountry(){
 function selectState(state){
 
 			if(state.result() == null ) {
-				state.predictionRequest()
+				//state.predictionRequest()
 			}
 
 			document.getElementById("title").innerHTML = state.name()
@@ -109,7 +109,7 @@ function removeAll(str, attr){
 function countryPredictionRequest(){
 	var state
 	for (state in states){
-		state.predictionRequest()
+		//state.predictionRequest()
 	}
 }
 
