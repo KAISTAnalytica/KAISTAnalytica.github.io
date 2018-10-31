@@ -72,7 +72,7 @@ function predictCountry(){
 function selectState(s){
 
 			var state
-			if( (typeof state) == "number"){
+			if( (typeof s) == "number"){
 				state = states[s]
 			} else {
 				state = s
