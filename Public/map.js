@@ -71,10 +71,6 @@ function predictCountry(){
 
 function selectState(state){
 
-			if(state typeof Number){
-				state = states[state]
-			}
-
 			if(state.result == null ) {
 				//state.predictionRequest()
 			}
@@ -98,7 +94,6 @@ function selectState(state){
 				
 			
 		}
-
 
 function setAll(str, attr, val){
 	var h = document.getElementsByClassName(str)
