@@ -55,7 +55,7 @@ function predictCountry(){
 			for(var i = 0; i < states.length; i++){
 				
 				states[i].node().setAttribute('fill', 'blue')
-				red += red + (states[i].result == null? 1 else states[i].result)
+				red += (red + (states[i].result == null? 1 else states[i].result))
 				
 			}
 			if(red > 4){
