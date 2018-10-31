@@ -109,9 +109,11 @@ function removeAll(str, attr){
 }
 
 function countryPredictionRequest(){
-	var s
-	for (s in states){
-		//state.predictionRequest()
+	
+	for (var i=0; i<states.length; ++i){
+		
+		states[i].predictionRequest()
+		
 	}
 }
 
