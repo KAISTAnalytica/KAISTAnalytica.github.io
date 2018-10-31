@@ -13,8 +13,15 @@ State.prototype.color = function() {
     }
 
 }
-State.prototype.id = info.data().id
-State.prototype.name = info.attr(title)
-State.prototype.node = info.node
-State.prototype.predictionRequest = function() {}
+State.prototype.id = this.info.data().id
+State.prototype.name = this.info.attr(title)
+State.prototype.node = this.info.node
+State.prototype.predictionRequest = function() {
+	server = ""
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', server+'/prediction/'+this.id)
+    xhr.onload = ()=>{window.location.replace(window.location.origin+'/')}
+    xhr.send();
+    
+}
 
