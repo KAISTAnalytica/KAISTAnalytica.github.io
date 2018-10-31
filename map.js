@@ -66,28 +66,6 @@ function predictCountry(){
 				document.getElementById("title").innerHTML = "The Australian Labor Party and the National Liberal Party would hold the same amount of states"
 			}
 			
-			*/
-			var blue = 0
-
-
-			behaviour = 1
-			for(var i = 0; i < states.length; i++){
-				if(Math.random() > 0.6){
-					states[i].node.setAttribute('fill', 'blue')
-					blue = blue + 1
-				} else{
-					states[i].node.setAttribute('fill', 'red')
-				}
-			}
-			if(blue < 4){
-				document.getElementById("title").innerHTML = "The Australian Labor Party will hold the majority of the states"
-			} else if (blue > 4){
-				document.getElementById("title").innerHTML = "The National Liberal Party will hold the majority of the states"
-			} else {
-				document.getElementById("title").innerHTML = "The Australian Labor Party and the National Liberal Party would hold the same amount of states"
-			}
-			*/
-			
 
 		}
 
