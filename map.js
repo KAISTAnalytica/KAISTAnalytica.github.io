@@ -84,11 +84,11 @@ function selectState(state){
 			//setAll("main", "hidden", true)
 			removeAll("sub", "hidden")
 
-			for (s in states){
-				if(s != state){
-					s.node().setAttribute('fill', 'lightgrey')
+			for (var s=0; s<states.length; ++s){
+				if(states[s] != state){
+					states[s].node().setAttribute('fill', 'lightgrey')
 				} else{
-					s.node().setAttribute('fill', s.color())
+					states[s].node().setAttribute('fill', states[s].color())
 				}
 			}
 				
