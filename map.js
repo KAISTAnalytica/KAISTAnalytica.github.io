@@ -71,7 +71,7 @@ function predictCountry(){
 
 function selectState(state){
 
-			if(state typeof Number){
+			if( (typeof state) == "number"){
 				state = states[state]
 			}
 
