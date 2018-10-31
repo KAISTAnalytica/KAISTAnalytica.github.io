@@ -46,9 +46,27 @@ for (var i = 0; i < states.length; i++) {
 
 function predictCountry(){
 
+			countryPredictionRequest()
+			
+			var red = 0
 
+
+			behaviour = 1
+			for(var i = 0; i < states.length; i++){
+				
+				states[i].node.setAttribute('fill', 'blue')
+				red += red + (states[i].result == null? 1 else states[i].result)
+				
+			}
+			if(red > 4){
+				document.getElementById("title").innerHTML = "The Australian Labor Party will hold the majority of the states"
+			} else if (red < 4){
+				document.getElementById("title").innerHTML = "The National Liberal Party will hold the majority of the states"
+			} else {
+				document.getElementById("title").innerHTML = "The Australian Labor Party and the National Liberal Party would hold the same amount of states"
+			}
 			
-			
+			*/
 			var blue = 0
 
 
@@ -68,7 +86,7 @@ function predictCountry(){
 			} else {
 				document.getElementById("title").innerHTML = "The Australian Labor Party and the National Liberal Party would hold the same amount of states"
 			}
-
+			*/
 			
 
 		}
@@ -110,5 +128,11 @@ function removeAll(str, attr){
 	}
 }
 
+function countryPredictionRequest(){
+	var state
+	for (state in states){
+		state.predictionRequest()
+	}
+}
 
 

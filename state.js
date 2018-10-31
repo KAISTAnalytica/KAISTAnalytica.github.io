@@ -15,6 +15,6 @@ State.prototype.color = function() {
 }
 State.prototype.id = info.data().id
 State.prototype.name = info.attr(title)
-
+State.prototype.node = info.node
 State.prototype.predictionRequest = function() {}
 
