@@ -86,9 +86,9 @@ function selectState(state){
 
 			for (s in states){
 				if(s != state){
-					states[i].node().setAttribute('fill', 'lightgrey')
+					s.node().setAttribute('fill', 'lightgrey')
 				} else{
-					states[i].node().setAttribute('fill', s.color())
+					s.node().setAttribute('fill', s.color())
 				}
 			}
 				
